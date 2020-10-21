@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/nav_home">
+
+    <fragment
+        android:id="@+id/nav_home"
+        android:name="com.CDH.myapplication.ui.home.HomeFragment"
+        android:label="@string/menu_home"
+        tools:layout="@layout/fragment_home" />
+
+    <fragment
+        android:id="@+id/nav_gallery"
+        android:name="com.CDH.myapplication.ui.gallery.GalleryFragment"
+        android:label="@string/menu_gallery"
+        tools:layout="@layout/fragment_gallery" />
+
+    <fragment
+        android:id="@+id/nav_slideshow"
+        android:name="com.CDH.myapplication.ui.slideshow.SlideshowFragment"
+        android:label="@string/menu_slideshow"
+        tools:layout="@layout/fragment_slideshow" />
+    <fragment
+        android:id="@+id/registrofotoFragment"
+        android:name="com.CDH.myapplication.ui.fragments.registrofotoFragment"
+        android:label="registrofoto_fragment"
+        tools:layout="@layout/registrofoto_fragment" />
+    <fragment
+        android:id="@+id/acercadefragment"
+        android:name="com.CDH.myapplication.ui.fragments.Acercadefragment"
+        android:label="acercadefragment_fragment"
+        tools:layout="@layout/acercadefragment_fragment" />
+    <fragment
+        android:id="@+id/planillaFragment2"
+        android:name="com.CDH.myapplication.ui.fragments.planillaFragment2"
+        android:label="planilla_fragment2_fragment"
+        tools:layout="@layout/planilla_fragment2_fragment" >
+        <action
+            android:id="@+id/action_planillaFragment2_to_planillaFragment3"
+            app:destination="@id/planillaFragment3" />
+        <action
+            android:id="@+id/action_planillaFragment2_to_plantillafragment1"
+            app:destination="@id/plantillafragment1" />
+        <argument
+            android:name="codigo"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/planillaFragment3"
+        android:name="com.CDH.myapplication.ui.fragments.planillaFragment3"
+        android:label="planilla_fragment3_fragment"
+        tools:layout="@layout/planilla_fragment3_fragment" >
+        <action
+            android:id="@+id/action_planillaFragment3_to_planillaFragment4"
+            app:destination="@id/planillaFragment4" />
+        <action
+            android:id="@+id/action_planillaFragment3_to_planillaFragment2"
+            app:destination="@id/planillaFragment2" />
+    </fragment>
+    <fragment
+        android:id="@+id/planillaFragment4"
+        android:name="com.CDH.myapplication.ui.fragments.planillaFragment4"
+        android:label="planilla_fragment4_fragment"
+        tools:layout="@layout/planilla_fragment4_fragment" >
+        <action
+            android:id="@+id/action_planillaFragment4_to_planillaFragment5"
+            app:destination="@id/planillaFragment5" />
+    </fragment>
+    <fragment
+        android:id="@+id/planillaFragment5"
+        android:name="com.CDH.myapplication.ui.fragments.planillaFragment5"
+        android:label="planilla_fragment5_fragment"
+        tools:layout="@layout/planilla_fragment5_fragment" >
+        <action
+            android:id="@+id/action_planillaFragment5_to_planillaFragment6"
+            app:destination="@id/planillaFragment6" />
+        <action
+            android:id="@+id/action_planillaFragment5_to_planillaFragment4"
+            app:destination="@id/planillaFragment4" />
+    </fragment>
+    <fragment
+        android:id="@+id/planillaFragment6"
+        android:name="com.CDH.myapplication.ui.fragments.planillaFragment6"
+        android:label="planilla_fragment6_fragment"
+        tools:layout="@layout/planilla_fragment6_fragment" >
+        <action
+            android:id="@+id/action_planillaFragment6_to_planillaFragment7"
+            app:destination="@id/planillaFragment7" />
+        <action
+            android:id="@+id/action_planillaFragment6_to_planillaFragment5"
+            app:destination="@id/planillaFragment5" />
+    </fragment>
+    <fragment
+        android:id="@+id/planillaFragment7"
+        android:name="com.CDH.myapplication.ui.fragments.planillaFragment7"
+        android:label="planilla_fragment7_fragment"
+        tools:layout="@layout/planilla_fragment7_fragment" >
+        <action
+            android:id="@+id/action_planillaFragment7_to_planillaFragment6"
+            app:destination="@id/planillaFragment6" />
+    </fragment>
+    <fragment
+        android:id="@+id/plantillafragment1"
+        android:name="com.CDH.myapplication.ui.fragments.plantillafragment1"
+        android:label="plantillafragment1_fragment"
+        tools:layout="@layout/plantillafragment1_fragment" >
+        <action
+            android:id="@+id/action_plantillafragment1_to_planillaFragment2"
+            app:destination="@id/planillaFragment2" />
+    </fragment>
+</navigation>

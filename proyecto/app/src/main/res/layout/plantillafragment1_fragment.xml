@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.plantillafragment1">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="346dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textCodigo"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Código de servicio" />
+
+                <EditText
+                    android:id="@+id/editTextCodigo"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textFecha"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha" />
+
+                <EditText
+                    android:id="@+id/editTextDate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="date" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textPersona"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Persona a cargo" />
+
+                <EditText
+                    android:id="@+id/editTextPersona"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textProyecto"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Proyecto/Cliente" />
+
+                <EditText
+                    android:id="@+id/editTextProyecto"
+                    android:layout_width="272dp"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textSuma"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Suma Asignada" />
+
+                <EditText
+                    android:id="@+id/editTextSuma"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="75dp">
+
+                <TextView
+                    android:id="@+id/textDetalle"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Detalle de los trabajos" />
+
+                <EditText
+                    android:id="@+id/editTextDetalle"
+                    android:layout_width="272dp"
+                    android:layout_height="match_parent"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="" />
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <Button
+        android:id="@+id/btn1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="151dp"
+        android:layout_marginBottom="-418dp"
+        android:text="siguiente" />
+
+</LinearLayout>
