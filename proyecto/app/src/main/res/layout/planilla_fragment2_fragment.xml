@@ -1,176 +1,250 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     android:visibility="visible"
     tools:context=".ui.fragments.planillaFragment2">
 
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText7"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="254dp"
-        android:layout_marginBottom="2dp"
-        android:text="Almuerzo" />
 
-    <TextView
-        android:id="@+id/textView14"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText8"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="281dp"
-        android:layout_marginBottom="1dp"
-        android:text="Cena" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="518dp">
 
-    <TextView
-        android:id="@+id/textView15"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText9"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="280dp"
-        android:layout_marginBottom="0dp"
-        android:text="Agua" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView16"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText10"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="235dp"
-        android:layout_marginBottom="0dp"
-        android:text="Alojamiento" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="29dp"
+                android:text="Gastos de Viaticos" />
 
-    <TextView
-        android:id="@+id/textView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText6"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="253dp"
-        android:layout_marginBottom="1dp"
-        android:text="Desayuno" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView20"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText6"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="49dp"
-        android:text="Gastos de viáticos" />
+                <TextView
+                    android:id="@+id/textDesayuno"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Desayuno" />
 
-    <TextView
-        android:id="@+id/textView18"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="212dp"
-        android:layout_marginBottom="105dp"
-        android:text="Total:" />
+                <EditText
+                    android:id="@+id/editTextDesayuno"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
-    <TextView
-        android:id="@+id/textView19"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="149dp"
-        android:layout_marginBottom="105dp"
-        android:text="NUMERO" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText6"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="102dp"
-        android:layout_marginBottom="601dp"
-        android:ems="10"
-        android:inputType="number" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/editText10"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="164dp"
-        android:ems="10"
-        android:inputType="number" />
+                <TextView
+                    android:id="@+id/textAlmuerzo"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Almuerzo" />
 
-    <EditText
-        android:id="@+id/editText9"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="285dp"
-        android:ems="10"
-        android:inputType="number" />
+                <EditText
+                    android:id="@+id/editTextAlmuerzo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
-    <EditText
-        android:id="@+id/editText8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="389dp"
-        android:ems="10"
-        android:inputType="number" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText7"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="101dp"
-        android:layout_marginBottom="498dp"
-        android:ems="10"
-        android:inputType="number" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="149dp"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="237dp"
-        android:layout_marginLeft="237dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="40dp"
-        android:text="Siguiente" />
+                <TextView
+                    android:id="@+id/textCena"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cena" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="141dp"
-        android:layout_height="39dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginRight="220dp"
-        android:layout_marginBottom="40dp"
-        android:text="Anterior" />
+                <EditText
+                    android:id="@+id/editTextCena"
+                    android:layout_width="247dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
-</RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textAgua"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Agua" />
+
+                <EditText
+                    android:id="@+id/editTextAgua"
+                    android:layout_width="246dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textAlojamiento"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Alojamiento" />
+
+                <EditText
+                    android:id="@+id/editTextAlojamiento"
+                    android:layout_width="257dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp">
+
+                <TextView
+                    android:id="@+id/textTotal"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total de Viaticos" />
+
+                <TextView
+                    android:id="@+id/textNumero"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Numero" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gastos de Varios"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textCombustible"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Combustible" />
+
+                <EditText
+                    android:id="@+id/editTextCombustible"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textPeaje"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Peaje" />
+
+                <EditText
+                    android:id="@+id/editTextPeaje"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textEstacionamiento"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Estacionamiento" />
+
+                <EditText
+                    android:id="@+id/editTextEstacionamiento"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="34dp">
+
+                <TextView
+                    android:id="@+id/textTotal2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total de Varios" />
+
+                <TextView
+                    android:id="@+id/textNumero2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Numero" />
+
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="454dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/btnA1"
+                    android:layout_width="142dp"
+                    android:layout_height="wrap_content"
+                    android:text="Anterior" />
+
+                <Button
+                    android:id="@+id/btnS1"
+                    android:layout_width="108dp"
+                    android:layout_height="wrap_content"
+                    android:text="Siguiente" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </ScrollView>
+
+
+</LinearLayout>

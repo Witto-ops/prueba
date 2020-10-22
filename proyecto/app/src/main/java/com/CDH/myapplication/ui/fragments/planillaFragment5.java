@@ -41,15 +41,15 @@ public class planillaFragment5 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button button6=view.findViewById(R.id.button6);
+        Button button6=view.findViewById(R.id.btnS2);
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.planillaFragment6);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment7);
             }
         });
 
-        Button button5=view.findViewById(R.id.button5);
+        Button button5=view.findViewById(R.id.btnA2);
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {

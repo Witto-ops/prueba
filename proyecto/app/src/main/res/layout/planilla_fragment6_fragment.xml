@@ -1,101 +1,110 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.fragments.planillaFragment6">
 
-    <Spinner
-        android:id="@+id/spinner"
-        android:layout_width="213dp"
-        android:layout_height="35dp"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="603dp" />
-
     <TextView
-        android:id="@+id/textView24"
-        android:layout_width="wrap_content"
+        android:id="@+id/textView2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/spinner"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="231dp"
-        android:layout_marginBottom="0dp"
-        android:text="Combustible" />
+        android:text="Gastos de Varios" />
 
-    <EditText
-        android:id="@+id/editText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="97dp"
-        android:layout_marginBottom="506dp"
-        android:ems="10"
-        android:inputType="number" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="257dp">
 
-    <EditText
-        android:id="@+id/editText2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="94dp"
-        android:layout_marginBottom="391dp"
-        android:ems="10"
-        android:inputType="number" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView25"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="276dp"
-        android:layout_marginBottom="0dp"
-        android:text="Peaje" />
 
-    <TextView
-        android:id="@+id/textView26"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText2"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="200dp"
-        android:layout_marginBottom="2dp"
-        android:text="Estacionamiento" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="149dp"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="237dp"
-        android:layout_marginLeft="237dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="40dp"
-        android:text="Siguiente" />
+                <TextView
+                    android:id="@+id/textCombustible"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Combustible" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="141dp"
-        android:layout_height="39dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginRight="220dp"
-        android:layout_marginBottom="40dp"
-        android:text="Anterior" />
+                <EditText
+                    android:id="@+id/editTextDesayuno"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
-</RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textPeaje"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Peaje" />
+
+                <EditText
+                    android:id="@+id/editTextPeaje"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textEstacionamiento"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Estacionamiento" />
+
+                <EditText
+                    android:id="@+id/editTextCena"
+                    android:layout_width="247dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+
+
+
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:text="Button" />
+    </LinearLayout>
+
+</LinearLayout>

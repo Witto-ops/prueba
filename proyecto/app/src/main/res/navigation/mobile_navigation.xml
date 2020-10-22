@@ -74,33 +74,17 @@
         android:label="planilla_fragment5_fragment"
         tools:layout="@layout/planilla_fragment5_fragment" >
         <action
-            android:id="@+id/action_planillaFragment5_to_planillaFragment6"
-            app:destination="@id/planillaFragment6" />
-        <action
             android:id="@+id/action_planillaFragment5_to_planillaFragment4"
             app:destination="@id/planillaFragment4" />
-    </fragment>
-    <fragment
-        android:id="@+id/planillaFragment6"
-        android:name="com.CDH.myapplication.ui.fragments.planillaFragment6"
-        android:label="planilla_fragment6_fragment"
-        tools:layout="@layout/planilla_fragment6_fragment" >
         <action
-            android:id="@+id/action_planillaFragment6_to_planillaFragment7"
+            android:id="@+id/action_planillaFragment5_to_planillaFragment7"
             app:destination="@id/planillaFragment7" />
-        <action
-            android:id="@+id/action_planillaFragment6_to_planillaFragment5"
-            app:destination="@id/planillaFragment5" />
     </fragment>
     <fragment
         android:id="@+id/planillaFragment7"
         android:name="com.CDH.myapplication.ui.fragments.planillaFragment7"
         android:label="planilla_fragment7_fragment"
-        tools:layout="@layout/planilla_fragment7_fragment" >
-        <action
-            android:id="@+id/action_planillaFragment7_to_planillaFragment6"
-            app:destination="@id/planillaFragment6" />
-    </fragment>
+        tools:layout="@layout/planilla_fragment7_fragment" />
     <fragment
         android:id="@+id/plantillafragment1"
         android:name="com.CDH.myapplication.ui.fragments.plantillafragment1"

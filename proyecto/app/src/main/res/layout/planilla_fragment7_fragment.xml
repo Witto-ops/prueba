@@ -1,176 +1,177 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".ui.fragments.planillaFragment7">
 
-    <EditText
-        android:id="@+id/editText3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="99dp"
-        android:layout_marginBottom="594dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="416dp">
 
-    <EditText
-        android:id="@+id/editText13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="92dp"
-        android:layout_marginBottom="143dp"
-        android:ems="10"
-        android:inputType="time" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
 
-    <TextView
-        android:id="@+id/textView34"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText13"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="181dp"
-        android:layout_marginBottom="1dp"
-        android:text="Hora Retorno Tarde" />
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Personal que asistió" />
 
-    <EditText
-        android:id="@+id/editText12"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="94dp"
-        android:layout_marginBottom="229dp"
-        android:ems="10"
-        android:inputType="time" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <TextView
-        android:id="@+id/textView33"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText12"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="196dp"
-        android:layout_marginBottom="2dp"
-        android:text="Hora Salida Tarde" />
+                <TextView
+                    android:id="@+id/textNombre"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Nombre" />
 
-    <EditText
-        android:id="@+id/editText11"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="95dp"
-        android:layout_marginBottom="317dp"
-        android:ems="10"
-        android:inputType="time" />
+                <EditText
+                    android:id="@+id/editTextNombre"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="" />
 
-    <TextView
-        android:id="@+id/textView32"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText11"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="169dp"
-        android:layout_marginBottom="1dp"
-        android:text="Hora Retorno Mañana" />
+            </LinearLayout>
 
-    <EditText
-        android:id="@+id/editText5"
-        android:layout_width="211dp"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="100dp"
-        android:layout_marginBottom="413dp"
-        android:ems="10"
-        android:inputType="time" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="70dp">
 
-    <TextView
-        android:id="@+id/textView30"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText5"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="182dp"
-        android:layout_marginBottom="2dp"
-        android:text="Hora Salida Mañana" />
+                <TextView
+                    android:id="@+id/textRut"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="RUT" />
 
-    <EditText
-        android:id="@+id/editText4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="96dp"
-        android:layout_marginBottom="508dp"
-        android:ems="10"
-        android:inputType="textPersonName" />
+                <EditText
+                    android:id="@+id/editTextRut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:inputType="textPersonName"
+                    android:text="" />
 
-    <TextView
-        android:id="@+id/textView31"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText4"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="289dp"
-        android:layout_marginBottom="0dp"
-        android:text="Rut" />
+            </LinearLayout>
 
-    <TextView
-        android:id="@+id/textView27"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginEnd="141dp"
-        android:layout_marginBottom="702dp"
-        android:text="Personal que asistió" />
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Mañana" />
 
-    <TextView
-        android:id="@+id/textView28"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_above="@+id/editText3"
-        android:layout_alignParentEnd="true"
-        android:layout_marginEnd="262dp"
-        android:layout_marginBottom="2dp"
-        android:text="Nombre" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
 
-    <Button
-        android:id="@+id/button6"
-        android:layout_width="149dp"
-        android:layout_height="44dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="237dp"
-        android:layout_marginLeft="237dp"
-        android:layout_marginEnd="25dp"
-        android:layout_marginRight="25dp"
-        android:layout_marginBottom="40dp"
-        android:text="Siguiente" />
+                <TextView
+                    android:id="@+id/textSalidaMañana"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hora Salida" />
 
-    <Button
-        android:id="@+id/button5"
-        android:layout_width="141dp"
-        android:layout_height="39dp"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentEnd="true"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="50dp"
-        android:layout_marginLeft="50dp"
-        android:layout_marginEnd="220dp"
-        android:layout_marginRight="220dp"
-        android:layout_marginBottom="40dp"
-        android:text="Anterior" />
+                <EditText
+                    android:id="@+id/editTextSalidaMañana"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
 
-</RelativeLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="74dp">
+
+                <TextView
+                    android:id="@+id/textRetornoMañana"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hora Retorno" />
+
+                <EditText
+                    android:id="@+id/editTextRetornoMañana"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tarde" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textSalidaTarde"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hora Salida" />
+
+                <EditText
+                    android:id="@+id/editTextSalidaTarde"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textRetornoTarde"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Hora Retorno" />
+
+                <EditText
+                    android:id="@+id/editTextRetornoTarde"
+                    android:layout_width="268dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:ems="10"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="213dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/button2"
+            android:layout_width="204dp"
+            android:layout_height="wrap_content"
+            android:text="Anterior" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="206dp"
+            android:layout_height="wrap_content"
+            android:text="Siguiente" />
+    </LinearLayout>
+</LinearLayout>

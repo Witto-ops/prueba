@@ -31,8 +31,8 @@ public class planillaFragment2 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View vista= inflater.inflate(R.layout.planilla_fragment2_fragment, container, false);
 
-        TextView tv = vista.findViewById(R.id.textView19);
-        tv.setText(getArguments().getString("amount"));
+       // TextView tv = vista.findViewById(R.id.textView19);
+       // tv.setText(getArguments().getString("amount"));
         return  vista;
     }
 
@@ -46,19 +46,19 @@ public class planillaFragment2 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button button6=view.findViewById(R.id.button6);
+        Button button6=view.findViewById(R.id.btnA1);
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.planillaFragment3);
+                Navigation.findNavController(v).navigate(R.id.plantillafragment1);
             }
         });
 
-        Button button5=view.findViewById(R.id.button5);
+        Button button5=view.findViewById(R.id.btnS1);
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.plantillafragment1);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment3);
             }
         });
     }

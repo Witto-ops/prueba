@@ -45,7 +45,7 @@ public class planillaFragment7 extends Fragment {
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.planillaFragment6);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment5);
             }
         });
     }
