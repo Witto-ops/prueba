@@ -41,8 +41,8 @@ public class planillaFragment7 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button button6=view.findViewById(R.id.button5);
-        button6.setOnClickListener(new View.OnClickListener(){
+        Button button5=view.findViewById(R.id.button2);
+        button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Navigation.findNavController(v).navigate(R.id.planillaFragment5);
