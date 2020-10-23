@@ -34,7 +34,7 @@ import java.util.Map;
 public class plantillafragment1 extends Fragment {
 
     private Plantillafragment1ViewModel mViewModel;
-    EditText codigoTXT;
+    EditText codigoTXT,fechaTXT,acargoTXT,asignadaTXT,detalleTXT,proyectoTXT;
     public static plantillafragment1 newInstance() {
         return new plantillafragment1();
     }
@@ -44,8 +44,11 @@ public class plantillafragment1 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View vista= inflater.inflate(R.layout.plantillafragment1_fragment, container, false);
         codigoTXT = (EditText) vista.findViewById(R.id.editTextCodigo);
-
-
+        fechaTXT = (EditText) vista.findViewById(R.id.editTextDate);
+        acargoTXT = (EditText) vista.findViewById(R.id.editTextPersona);
+        proyectoTXT = (EditText) vista.findViewById(R.id.editTextProyecto);
+        asignadaTXT = (EditText) vista.findViewById(R.id.editTextSuma);
+        detalleTXT = (EditText) vista.findViewById(R.id.editTextDetalle);
         return vista;
     }
 
@@ -66,12 +69,17 @@ public class plantillafragment1 extends Fragment {
             public void onClick(View v) {
 
                 //ejecutarServicio("http://192.168.56.1/wappservice/insertar_ficha.php");
-                codigoTXT = (EditText) getView().findViewById(R.id.editTextCodigo);
+               // codigoTXT = (EditText) getView().findViewById(R.id.editTextCodigo);
                 String codigo = codigoTXT.getText().toString();
+                String fecha = fechaTXT.getText().toString();
+                String acargo = acargoTXT.getText().toString();
+                String proyecto = proyectoTXT.getText().toString();
+                String asignada = asignadaTXT.getText().toString();
+                String detalle = detalleTXT.getText().toString();
                 Bundle bundle = new Bundle();
                 Toast.makeText(getActivity(), codigoTXT.getText().toString() , Toast.LENGTH_SHORT).show();
-                bundle.putString("amount", codigo);
-                ejecutarServicio("http://192.168.56.1/wappservice/insertar_ficha.php");
+                bundle.putString("code", codigo);
+                //ejecutarServicio("http://192.168.56.1/wappservice/insertar_ficha.php");
 
                 Navigation.findNavController(v).navigate(R.id.planillaFragment2, bundle);
             }
@@ -92,6 +100,11 @@ public class plantillafragment1 extends Fragment {
             protected Map<String, String>getParams() throws AuthFailureError{
                 Map<String,String> parametros=new HashMap<String, String>();
                 parametros.put("codigo",codigoTXT.getText().toString());
+                parametros.put("fecha",fechaTXT.getText().toString());
+                parametros.put("acargo",acargoTXT.getText().toString());
+                parametros.put("proyecto",proyectoTXT.getText().toString());
+                parametros.put("asignada",asignadaTXT.getText().toString());
+                parametros.put("detalle",detalleTXT.getText().toString());
                 return  parametros;
             }
         };

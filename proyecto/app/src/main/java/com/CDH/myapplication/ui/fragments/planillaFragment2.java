@@ -32,7 +32,7 @@ public class planillaFragment2 extends Fragment {
         View vista= inflater.inflate(R.layout.planilla_fragment2_fragment, container, false);
 
        // TextView tv = vista.findViewById(R.id.textView19);
-       // tv.setText(getArguments().getString("amount"));
+       // tv.setText(getArguments().getString("code"));
         return  vista;
     }
 
