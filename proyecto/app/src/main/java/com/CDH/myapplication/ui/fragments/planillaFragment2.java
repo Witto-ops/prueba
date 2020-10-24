@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment2ViewModel;
@@ -31,8 +32,7 @@ public class planillaFragment2 extends Fragment {
                              @Nullable Bundle savedInstanceState) {
         View vista= inflater.inflate(R.layout.planilla_fragment2_fragment, container, false);
 
-       // TextView tv = vista.findViewById(R.id.textView19);
-       // tv.setText(getArguments().getString("code"));
+
         return  vista;
     }
 
@@ -50,7 +50,11 @@ public class planillaFragment2 extends Fragment {
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.plantillafragment1);
+
+                String codigo = getArguments().getString("codigo");
+                Bundle bundle = new Bundle();
+                bundle.putString("codigo", codigo);
+                Navigation.findNavController(v).navigate(R.id.plantillafragment1,bundle);
             }
         });
 

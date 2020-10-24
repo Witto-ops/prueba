@@ -93,5 +93,8 @@
         <action
             android:id="@+id/action_plantillafragment1_to_planillaFragment2"
             app:destination="@id/planillaFragment2" />
+        <argument
+            android:name="codigo"
+            app:argType="string" />
     </fragment>
 </navigation>
