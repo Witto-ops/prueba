@@ -59,10 +59,10 @@ public class personalFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                 String codigo = codigotxt.getText().toString();
-                Bundle bundle = new Bundle();
-                bundle.putString("codigo", codigo);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment7, bundle);
+                // String codigo = codigotxt.getText().toString();
+                //Bundle bundle = new Bundle();
+               // bundle.putString("codigo", codigo);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment7);
             }
         });
 

@@ -73,12 +73,13 @@ public class planillaFragment3 extends Fragment {
                 Navigation.findNavController(v).navigate(R.id.planillaFragment2,bundle);
             }
         });
-        final EditText txtnombre = findViewById(R.id.txtnombre);
-        final EditText txtprecio = findViewById(R.id.txtprecio);
-        final Button btnagregar= findViewById(R.id.btnagregar);
-        lista = findViewById(R.id.lista);
+
+        final EditText txtnombre = view.findViewById(R.id.txtnombre);
+        final EditText txtprecio = view.findViewById(R.id.txtprecio);
+        final Button btnagregar= view.findViewById(R.id.btnagregar);
+        lista = view.findViewById(R.id.lista);
         items = new ArrayList<>();
-        ADP = new ArrayAdapter(getApplicationContext(),android.R.layout.simple_list_item_1,items);
+        ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
         lista.setAdapter(ADP);
 
         btnagregar.setOnClickListener(new View.OnClickListener() {

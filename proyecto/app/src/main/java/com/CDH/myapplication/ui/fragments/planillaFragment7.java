@@ -26,7 +26,7 @@ public class planillaFragment7 extends Fragment {
     private PlanillaFragment7ViewModel mViewModel;
     EditText nombretxt, ruttxt, samtxt, spmtxt, eamtxt, epmtxt;
     DbHelperPersonal FavDB;
-    Button btn;
+    Button btn, btn2;
 
     public static planillaFragment7 newInstance() {
         return new planillaFragment7();
@@ -43,13 +43,16 @@ public class planillaFragment7 extends Fragment {
         eamtxt = (EditText) vista.findViewById(R.id.editTextRetornoMañana);
         epmtxt = (EditText) vista.findViewById(R.id.editTextRetornoTarde);
         btn = (Button) vista.findViewById(R.id.button2);
+        btn2 =(Button) vista.findViewById(R.id.button3);
         FavDB = new DbHelperPersonal(vista.getContext());
-
+        btn2.setVisibility(View.GONE);
         Bundle bundle = getArguments();
         if(bundle!=null ){
             rellena(getArguments().getString("rut"),getArguments().getString("nombre"),getArguments().getString("eam"),
                     getArguments().getString("epm"),getArguments().getString("sam"),getArguments().getString("spm"));
         }
+        btn2.setVisibility(View.GONE);
+        btn.setText("Guardar");
 
        return  vista;
     }
@@ -125,5 +128,6 @@ public class planillaFragment7 extends Fragment {
         eamtxt.setText(eam);
         epmtxt.setText(epm);
         btn.setText("Modificar");
+        btn2.setVisibility(View.VISIBLE);
     }
 }

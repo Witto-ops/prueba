@@ -92,7 +92,7 @@ public class DbHelperPersonal extends SQLiteOpenHelper {
     //es favorito?
     public boolean is_exist(String rut) {
         SQLiteDatabase db = this.getReadableDatabase();
-        String sql = "select * from  " + TABLE_NAME + " where " + RUT+"="+rut+" and "+ESTADO+"= 'true'";
+        String sql = "select * from  " + TABLE_NAME + " where " + RUT+"='"+rut+"' and "+ESTADO+"= 'true'";
         Cursor cursor = db.rawQuery(sql,null);
         if(cursor.getCount() <= 0){
             cursor.close();
