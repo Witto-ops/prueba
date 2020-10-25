@@ -38,8 +38,8 @@ public class plantillafragment1 extends Fragment {
 
     private Plantillafragment1ViewModel mViewModel;
     DbHelper FavDB;
-
     EditText codigoTXT,fechaTXT,acargoTXT,asignadaTXT,detalleTXT,proyectoTXT;
+
     public static plantillafragment1 newInstance() {
         return new plantillafragment1();
     }
@@ -55,9 +55,17 @@ public class plantillafragment1 extends Fragment {
         asignadaTXT = (EditText) vista.findViewById(R.id.editTextSuma);
         detalleTXT = (EditText) vista.findViewById(R.id.editTextDetalle);
 
-
+        asignadaTXT.setOnFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View v, boolean hasFocus) {
+                if (!hasFocus) {
+                    if(asignadaTXT.getText().toString().equals("")){
+                        asignadaTXT.setText("0");
+                    }
+                }
+            }
+        });
         FavDB = new DbHelper(vista.getContext());
-
         Bundle bundle = getArguments();
         if(bundle!=null){
             agregabdd(getArguments().getString("codigo"));
@@ -94,15 +102,15 @@ public class plantillafragment1 extends Fragment {
 
                 String codigo = codigoTXT.getText().toString();
                 Bundle bundle = new Bundle();
-                Toast.makeText(getActivity(), codigoTXT.getText().toString() , Toast.LENGTH_SHORT).show();
-                bundle.putString("codigo", codigo);
+              //  Toast.makeText(getActivity(), codigoTXT.getText().toString() , Toast.LENGTH_SHORT).show();
+                bundle.putString("codigo", codigo); bundle.putString("numero", "1");
                 agregabdd(codigo);
-
                 //ejecutarServicio("http://192.168.56.1/wappservice/insertar_ficha.php");
 
                 Navigation.findNavController(v).navigate(R.id.planillaFragment2, bundle);
             }
         });
+
     }
     private void agregabdd(String codigo){
         String fecha = fechaTXT.getText().toString();
@@ -111,7 +119,6 @@ public class plantillafragment1 extends Fragment {
         String asignada = asignadaTXT.getText().toString();
         String detalle = detalleTXT.getText().toString();
         if(FavDB.if_exist(codigo)){
-
             SQLiteDatabase db = FavDB.getReadableDatabase();
             Cursor cursor = FavDB.select_all_favorite_list();
             try {
@@ -124,6 +131,8 @@ public class plantillafragment1 extends Fragment {
                     codigoTXT.setText(cursor.getString(cursor.getColumnIndex(FavDB.CODIGO)));
 
                 }
+                FavDB.edit_parts_one(codigo, acargo,  proyecto,  asignada,  detalle,  fecha);
+
             } finally {
                 if (cursor != null && cursor.isClosed())
                     cursor.close();
@@ -136,11 +145,6 @@ public class plantillafragment1 extends Fragment {
         }
 
     }
-
-
-
-
-
 
 
 

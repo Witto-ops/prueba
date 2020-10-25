@@ -58,6 +58,9 @@
         <action
             android:id="@+id/action_planillaFragment3_to_planillaFragment2"
             app:destination="@id/planillaFragment2" />
+        <argument
+            android:name="codigo"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/planillaFragment4"
@@ -67,6 +70,12 @@
         <action
             android:id="@+id/action_planillaFragment4_to_planillaFragment5"
             app:destination="@id/planillaFragment5" />
+        <argument
+            android:name="codigo"
+            app:argType="string" />
+        <action
+            android:id="@+id/action_planillaFragment4_to_planillaFragment3"
+            app:destination="@id/planillaFragment3" />
     </fragment>
     <fragment
         android:id="@+id/planillaFragment5"
@@ -79,12 +88,19 @@
         <action
             android:id="@+id/action_planillaFragment5_to_planillaFragment7"
             app:destination="@id/planillaFragment7" />
+        <argument
+            android:name="codigo"
+            app:argType="string" />
     </fragment>
     <fragment
         android:id="@+id/planillaFragment7"
         android:name="com.CDH.myapplication.ui.fragments.planillaFragment7"
         android:label="planilla_fragment7_fragment"
-        tools:layout="@layout/planilla_fragment7_fragment" />
+        tools:layout="@layout/planilla_fragment7_fragment" >
+        <argument
+            android:name="codigo"
+            app:argType="string" />
+    </fragment>
     <fragment
         android:id="@+id/plantillafragment1"
         android:name="com.CDH.myapplication.ui.fragments.plantillafragment1"

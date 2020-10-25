@@ -45,7 +45,10 @@ public class planillaFragment6 extends Fragment {
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.planillaFragment7);
+                String codigo = getArguments().getString("codigo");
+                Bundle bundle = new Bundle();
+                bundle.putString("codigo", codigo);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment7, bundle);
             }
         });
 
@@ -53,7 +56,10 @@ public class planillaFragment6 extends Fragment {
         button5.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                Navigation.findNavController(v).navigate(R.id.planillaFragment5);
+                String codigo = getArguments().getString("codigo");
+                Bundle bundle = new Bundle();
+                bundle.putString("codigo", codigo);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment5, bundle);
             }
         });
     }
