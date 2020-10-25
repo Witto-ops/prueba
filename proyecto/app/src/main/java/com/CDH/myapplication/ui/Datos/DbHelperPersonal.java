@@ -75,11 +75,19 @@ public class DbHelperPersonal extends SQLiteOpenHelper {
     }
 
     // remove line from database
-    public void remove_fav(int id) {
+    public void remove_fav(String rut) {
         SQLiteDatabase db = this.getWritableDatabase();
-        String sql = "UPDATE " + TABLE_NAME + " SET  "+ ESTADO+" ='false' WHERE "+RUT+"='"+id+"'";
+        String sql = "UPDATE " + TABLE_NAME + " SET  "+ ESTADO+" ='false' WHERE "+RUT+"='"+rut+"'";
         db.execSQL(sql);
-        Log.d("remove", String.valueOf(id));
+        Log.d("remove", String.valueOf(rut));
+
+    }
+
+    public void cambio(String rut) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        String sql = "UPDATE " + TABLE_NAME + " SET  "+ ESTADO+" ='true' WHERE "+RUT+"='"+rut+"'";
+        db.execSQL(sql);
+        Log.d("remove", String.valueOf(rut));
 
     }
     public void update(String nombre, String rut, String sam, String spm, String eam, String epm) {

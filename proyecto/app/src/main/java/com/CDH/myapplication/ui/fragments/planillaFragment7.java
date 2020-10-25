@@ -45,14 +45,18 @@ public class planillaFragment7 extends Fragment {
         btn = (Button) vista.findViewById(R.id.button2);
         btn2 =(Button) vista.findViewById(R.id.button3);
         FavDB = new DbHelperPersonal(vista.getContext());
-        btn2.setVisibility(View.GONE);
         Bundle bundle = getArguments();
-        if(bundle!=null ){
+        if(bundle!=null && getArguments().getString("n").equals("2")){
             rellena(getArguments().getString("rut"),getArguments().getString("nombre"),getArguments().getString("eam"),
                     getArguments().getString("epm"),getArguments().getString("sam"),getArguments().getString("spm"));
+            btn2.setVisibility(View.VISIBLE);
+        }else{
+            btn.setText("Guardar");
+
+            btn2.setVisibility(View.GONE);
+
         }
-        btn2.setVisibility(View.GONE);
-        btn.setText("Guardar");
+
 
        return  vista;
     }
@@ -70,9 +74,22 @@ public class planillaFragment7 extends Fragment {
                 bundle.putString("codigo", codigo);
                 if(btn.getText().toString().equals("Modificar")){
                     modificar(getArguments().getString("rut"));
+
                 }else{
                     agregar();
                 }
+                Navigation.findNavController(v).navigate(R.id.personalFragment,bundle);
+            }
+        });
+
+        Button btn3=view.findViewById(R.id.button3);
+        btn3.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String codigo = getArguments().getString("codigo");
+                Bundle bundle = new Bundle();
+                bundle.putString("codigo", codigo);
+                elimina(getArguments().getString("rut"));
                 Navigation.findNavController(v).navigate(R.id.personalFragment,bundle);
             }
         });
@@ -90,6 +107,8 @@ public class planillaFragment7 extends Fragment {
             if (!FavDB.is_exist(rut)) {
                 FavDB.insertIntoTheDatabase(nombre, rut, sam, spm, eam, epm, "true");
                 limpia();
+            }else{
+                FavDB.cambio(rut);
             }
         }
     }
@@ -101,6 +120,20 @@ public class planillaFragment7 extends Fragment {
         eamtxt.setText("");
         epmtxt.setText("");
         Toast.makeText(getActivity(), "Se agrego el Personal", Toast.LENGTH_SHORT).show();
+
+    }
+
+    public void elimina(String rut){
+        if(!nombretxt.getText().toString().equals("") && !ruttxt.getText().toString().equals("") && !samtxt.getText().toString().equals("")
+                && !spmtxt.getText().toString().equals("") && !eamtxt.getText().toString().equals("") && !epmtxt.getText().toString().equals("")
+                && ruttxt.getText().toString().equals(rut)) {
+            String rut2 = ruttxt.getText().toString();
+            FavDB.remove_fav(rut2);
+            Toast.makeText(getActivity(), "Se Elimino el Personal", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getActivity(), "No se Elimino el Personal", Toast.LENGTH_SHORT).show();
+        }
+
 
     }
     public void modificar(String rut){

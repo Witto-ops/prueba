@@ -59,10 +59,10 @@ public class personalFragment extends Fragment {
         btn1.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
-                // String codigo = codigotxt.getText().toString();
-                //Bundle bundle = new Bundle();
-               // bundle.putString("codigo", codigo);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment7);
+                 String codigo = codigotxt.getText().toString();
+                Bundle bundle = new Bundle();
+                bundle.putString("codigo", codigo);  bundle.putString("n", "1");
+                Navigation.findNavController(v).navigate(R.id.planillaFragment7, bundle);
             }
         });
 
@@ -116,6 +116,7 @@ public class personalFragment extends Fragment {
                 bundle.putString("epm", listaPersonal.get(recyclerViewPersonal.getChildAdapterPosition(v)).getEntradaPm());
                 bundle.putString("sam", listaPersonal.get(recyclerViewPersonal.getChildAdapterPosition(v)).getSalidaAm());
                 bundle.putString("spm", listaPersonal.get(recyclerViewPersonal.getChildAdapterPosition(v)).getSalidaPm());
+                bundle.putString("n","2");
 
                 Navigation.findNavController(v).navigate(R.id.planillaFragment7, bundle);
 
