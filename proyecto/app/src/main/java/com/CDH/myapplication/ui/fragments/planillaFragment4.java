@@ -12,10 +12,16 @@ import androidx.navigation.Navigation;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.ListView;
 
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment4ViewModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class planillaFragment4 extends Fragment {
 
@@ -37,6 +43,9 @@ public class planillaFragment4 extends Fragment {
         mViewModel = ViewModelProviders.of(this).get(PlanillaFragment4ViewModel.class);
         // TODO: Use the ViewModel
     }
+    private ListView lista;
+    List<String> items;
+    ArrayAdapter ADP;
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -60,6 +69,22 @@ public class planillaFragment4 extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("codigo", codigo);
                 Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+            }
+        });
+        final EditText txtnombre = view.findViewById(R.id.txtnombre);
+        final EditText txtprecio = view.findViewById(R.id.txtprecio);
+        final Button btnagregar= view.findViewById(R.id.btnagregar);
+        lista = view.findViewById(R.id.lista);
+        items = new ArrayList<>();
+        ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+        lista.setAdapter(ADP);
+
+        btnagregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                items.add(txtnombre.getText().toString());
+                items.add(txtprecio.getText().toString());
+                ADP.notifyDataSetChanged();
             }
         });
     }
