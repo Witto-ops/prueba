@@ -13,13 +13,20 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 import com.CDH.myapplication.R;
+import com.CDH.myapplication.ui.Datos.DbHelper;
+import com.CDH.myapplication.ui.Datos.DbHelperPersonal;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment7ViewModel;
 
 public class planillaFragment7 extends Fragment {
 
     private PlanillaFragment7ViewModel mViewModel;
+    EditText nombretxt, ruttxt, samtxt, spmtxt, eamtxt, epmtxt;
+    DbHelperPersonal FavDB;
+    Button btn;
 
     public static planillaFragment7 newInstance() {
         return new planillaFragment7();
@@ -28,15 +35,25 @@ public class planillaFragment7 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.planilla_fragment7_fragment, container, false);
+       View vista= inflater.inflate(R.layout.planilla_fragment7_fragment, container, false);
+        nombretxt = (EditText) vista.findViewById(R.id.editTextNombre);
+        ruttxt = (EditText) vista.findViewById(R.id.editTextRut);
+        samtxt = (EditText) vista.findViewById(R.id.editTextSalidaMañana);
+        spmtxt = (EditText) vista.findViewById(R.id.editTextSalidaTarde);
+        eamtxt = (EditText) vista.findViewById(R.id.editTextRetornoMañana);
+        epmtxt = (EditText) vista.findViewById(R.id.editTextRetornoTarde);
+        btn = (Button) vista.findViewById(R.id.button2);
+        FavDB = new DbHelperPersonal(vista.getContext());
+
+        Bundle bundle = getArguments();
+        if(bundle!=null ){
+            rellena(getArguments().getString("rut"),getArguments().getString("nombre"),getArguments().getString("eam"),
+                    getArguments().getString("epm"),getArguments().getString("sam"),getArguments().getString("spm"));
+        }
+
+       return  vista;
     }
 
-    @Override
-    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
-        super.onActivityCreated(savedInstanceState);
-        mViewModel = ViewModelProviders.of(this).get(PlanillaFragment7ViewModel.class);
-        // TODO: Use the ViewModel
-    }
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
@@ -48,8 +65,65 @@ public class planillaFragment7 extends Fragment {
                 String codigo = getArguments().getString("codigo");
                 Bundle bundle = new Bundle();
                 bundle.putString("codigo", codigo);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment5,bundle);
+                if(btn.getText().toString().equals("Modificar")){
+                    modificar(getArguments().getString("rut"));
+                }else{
+                    agregar();
+                }
+                Navigation.findNavController(v).navigate(R.id.personalFragment,bundle);
             }
         });
+    }
+
+    public void agregar(){
+        if(!nombretxt.getText().toString().equals("") && !ruttxt.getText().toString().equals("") && !samtxt.getText().toString().equals("")
+        && !spmtxt.getText().toString().equals("") && !eamtxt.getText().toString().equals("") && !epmtxt.getText().toString().equals("")) {
+            String nombre = nombretxt.getText().toString();
+            String rut = ruttxt.getText().toString();
+            String sam = samtxt.getText().toString();
+            String spm = spmtxt.getText().toString();
+            String eam = eamtxt.getText().toString();
+            String epm = epmtxt.getText().toString();
+            if (!FavDB.is_exist(rut)) {
+                FavDB.insertIntoTheDatabase(nombre, rut, sam, spm, eam, epm, "true");
+                limpia();
+            }
+        }
+    }
+    public void limpia(){
+        nombretxt.setText("");
+        ruttxt.setText("");
+        samtxt.setText("");
+        spmtxt.setText("");
+        eamtxt.setText("");
+        epmtxt.setText("");
+        Toast.makeText(getActivity(), "Se agrego el Personal", Toast.LENGTH_SHORT).show();
+
+    }
+    public void modificar(String rut){
+        if(!nombretxt.getText().toString().equals("") && !ruttxt.getText().toString().equals("") && !samtxt.getText().toString().equals("")
+                && !spmtxt.getText().toString().equals("") && !eamtxt.getText().toString().equals("") && !epmtxt.getText().toString().equals("")
+                && ruttxt.getText().toString().equals(rut)) {
+            String nombre = nombretxt.getText().toString();
+            String rut2 = ruttxt.getText().toString();
+            String sam = samtxt.getText().toString();
+            String spm = spmtxt.getText().toString();
+            String eam = eamtxt.getText().toString();
+            String epm = epmtxt.getText().toString();
+            FavDB.update(nombre, rut2, sam, spm, eam, epm);
+            Toast.makeText(getActivity(), "Se modifico el Personal", Toast.LENGTH_SHORT).show();
+        }else{
+            Toast.makeText(getActivity(), "No se modifico el Personal", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void rellena(String rut, String nombre, String eam, String epm, String sam, String spm){
+        nombretxt.setText(nombre);
+        ruttxt.setText(rut);
+        samtxt.setText(sam);
+        spmtxt.setText(spm);
+        eamtxt.setText(eam);
+        epmtxt.setText(epm);
+        btn.setText("Modificar");
     }
 }

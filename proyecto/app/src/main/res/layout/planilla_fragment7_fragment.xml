@@ -38,7 +38,7 @@
                     android:layout_weight="1"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="" />
+                    android:hint="Nombre" />
 
             </LinearLayout>
 
@@ -58,7 +58,7 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
-                    android:text="" />
+                    android:hint="11.111.111-1" />
 
             </LinearLayout>
 
@@ -84,7 +84,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:hint="10:00"/>
 
             </LinearLayout>
 
@@ -104,7 +105,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:hint="10:00"/>
 
             </LinearLayout>
 
@@ -130,7 +132,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:hint="10:00"/>
 
             </LinearLayout>
 
@@ -150,7 +153,8 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:ems="10"
-                    android:inputType="number" />
+                    android:inputType="number"
+                    android:hint="10:00"/>
 
             </LinearLayout>
 
@@ -161,17 +165,11 @@
         android:layout_width="match_parent"
         android:layout_height="213dp"
         android:orientation="horizontal">
-
         <Button
             android:id="@+id/button2"
-            android:layout_width="204dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Anterior" />
+            android:text="Guardar" />
 
-        <Button
-            android:id="@+id/button"
-            android:layout_width="206dp"
-            android:layout_height="wrap_content"
-            android:text="Siguiente" />
     </LinearLayout>
 </LinearLayout>

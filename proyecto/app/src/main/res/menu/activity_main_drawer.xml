@@ -17,12 +17,13 @@
             android:icon="@drawable/ic_edit_24"
             android:title="Modificar Planilla" />
         <item
+            android:id="@+id/personalFragment"
+            android:icon="@drawable/ic_supervised"
+            android:title="Ingreso de Personal" />
+        <item
             android:id="@+id/registrofotoFragment"
             android:icon="@drawable/ic_menu_gallery"
             android:title="Registros Fotograficos" />
-        <item
-            android:id="@+id/acercadefragment"
-            android:icon="@drawable/ic_info_24"
-            android:title="Acerca de CDH_APP" />
+
     </group>
 </menu>

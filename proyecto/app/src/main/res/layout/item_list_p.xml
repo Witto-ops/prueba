@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical"
+    app:cardCornerRadius="3dp"
+    app:cardElevation="3dp"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/imagen_producto"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:src="@drawable/ic_launcher_background"></ImageView>
+
+        <TextView
+            android:id="@+id/nombre_personal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
+            android:layout_toEndOf="@id/imagen_producto"
+            android:layout_toRightOf="@id/imagen_producto"
+            android:text="Nombre "
+            android:textSize="20sp"
+            android:textStyle="bold">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/rut_personal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_personal"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
+            android:layout_toEndOf="@id/imagen_producto"
+            android:layout_toRightOf="@id/imagen_producto"
+            android:text="RUT">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/hora_entrada_am"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_personal"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="26dp"
+            android:layout_toEndOf="@id/imagen_producto"
+            android:layout_toRightOf="@id/imagen_producto"
+            android:text="10:00">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/hora_salida_am"
+            android:layout_width="126dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_personal"
+            android:layout_marginStart="156dp"
+            android:layout_marginLeft="156dp"
+            android:layout_marginTop="26dp"
+            android:layout_toEndOf="@id/imagen_producto"
+            android:layout_toRightOf="@id/imagen_producto"
+            android:text="10:00">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/hora_entrada_pm"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_personal"
+            android:layout_marginStart="21dp"
+            android:layout_marginLeft="21dp"
+            android:layout_marginTop="50dp"
+            android:layout_toEndOf="@id/imagen_producto"
+            android:layout_toRightOf="@id/imagen_producto"
+            android:text="10:00">
+
+        </TextView>
+
+        <TextView
+            android:id="@+id/hora_salida_pm"
+            android:layout_width="127dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/nombre_personal"
+            android:layout_marginStart="155dp"
+            android:layout_marginLeft="155dp"
+            android:layout_marginTop="51dp"
+            android:layout_toEndOf="@id/imagen_producto"
+            android:layout_toRightOf="@id/imagen_producto"
+            android:text="10:00">
+
+        </TextView>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>
