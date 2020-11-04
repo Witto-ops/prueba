@@ -20,6 +20,7 @@ import android.widget.ListView;
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment4ViewModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,27 +51,7 @@ public class planillaFragment4 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        Button button6=view.findViewById(R.id.button6);
-        button6.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
-                bundle.putString("codigo", codigo);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment5,bundle);
-            }
-        });
 
-        Button button5=view.findViewById(R.id.button5);
-        button5.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View v) {
-                String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
-                bundle.putString("codigo", codigo);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
-            }
-        });
         final EditText txtnombre = view.findViewById(R.id.txtnombre);
         final EditText txtprecio = view.findViewById(R.id.txtprecio);
         final Button btnagregar= view.findViewById(R.id.btnagregar);
@@ -82,9 +63,33 @@ public class planillaFragment4 extends Fragment {
         btnagregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                items.add(txtnombre.getText().toString());
-                items.add(txtprecio.getText().toString());
+                items.add(txtnombre.getText().toString()+" "+txtprecio.getText().toString());
+               // items.add(txtprecio.getText().toString());
                 ADP.notifyDataSetChanged();
+            }
+        });
+
+        Button button6=view.findViewById(R.id.button6);
+        button6.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String codigo = getArguments().getString("codigo");
+                Bundle bundle = getArguments();
+                bundle.putString("codigo", codigo);
+                bundle.putSerializable("objetos2", (Serializable) items);
+                Navigation.findNavController(v).navigate(R.id.planillaFragment5,bundle);
+            }
+        });
+
+        Button button5=view.findViewById(R.id.button5);
+        button5.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                String codigo = getArguments().getString("codigo");
+                Bundle bundle = new Bundle();
+                bundle.putString("codigo", codigo);
+
+                Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
             }
         });
     }

@@ -241,7 +241,7 @@ public class planillaFragment2 extends Fragment {
         if (FavDB.if_exist(codigo)) {
 
             SQLiteDatabase db = FavDB.getReadableDatabase();
-            Cursor cursor = FavDB.select_all_favorite_list();
+            Cursor cursor = FavDB.read_all_data(codigo);
             try {
                 while (cursor.moveToNext()) {
                     if(cursor.getString(cursor.getColumnIndex(FavDB.DESAYUNO))==null && cursor.getString(cursor.getColumnIndex(FavDB.ALMUERZO))== null && cursor.getString(cursor.getColumnIndex(FavDB.CENA))==null &&

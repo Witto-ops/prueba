@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".ui.fragments.ResumenFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="552dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textCodigo2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Código de servicio" />
+
+                <TextView
+                    android:id="@+id/textCodigo"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Código de servicio" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textFecha2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Fecha" />
+
+                <TextView
+                    android:id="@+id/textFecha"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Fecha" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textPersona3"
+                    android:layout_width="192dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Persona a cargo" />
+
+                <TextView
+                    android:id="@+id/textPersona"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Persona a cargo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textProyecto2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Proyecto/Cliente" />
+
+                <TextView
+                    android:id="@+id/textProyecto"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Proyecto/Cliente" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textSuma2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Suma Asignada" />
+
+                <TextView
+                    android:id="@+id/textSuma"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Suma Asignada" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="52dp">
+
+                <TextView
+                    android:id="@+id/textDetalle2"
+                    android:layout_width="242dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Detalle de los trabajos" />
+
+                <TextView
+                    android:id="@+id/textDetalle"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Detalle de los trabajos" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gastos de Viaticos" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textDesayuno2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Desayuno" />
+
+                <TextView
+                    android:id="@+id/textDesayuno"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Desayuno" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textAlmuerzo3"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Almuerzo" />
+
+                <TextView
+                    android:id="@+id/textAlmuerzo"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Almuerzo" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textCena2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Cena" />
+
+                <TextView
+                    android:id="@+id/textCena"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Cena" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textAgua2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Agua" />
+
+                <TextView
+                    android:id="@+id/textAgua"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Agua" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textAlojamiento2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Alojamiento" />
+
+                <TextView
+                    android:id="@+id/textAlojamiento"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Alojamiento" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="53dp">
+
+                <TextView
+                    android:id="@+id/textTotal"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total de Viaticos" />
+
+                <TextView
+                    android:id="@+id/textNumero"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Gastos de Varios"
+                android:visibility="visible" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textCombustible2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Combustible" />
+
+                <TextView
+                    android:id="@+id/textCombustible"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Combustible" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textPeaje2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Peaje" />
+
+                <TextView
+                    android:id="@+id/textPeaje"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Peaje" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <TextView
+                    android:id="@+id/textEstacionamiento2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Estacionamiento" />
+
+                <TextView
+                    android:id="@+id/textEstacionamiento"
+                    android:layout_width="219dp"
+                    android:layout_height="wrap_content"
+                    android:text="Estacionamiento" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+
+                <TextView
+                    android:id="@+id/textTotal2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="Total de Varios" />
+
+                <TextView
+                    android:id="@+id/textNumero2"
+                    android:layout_width="135dp"
+                    android:layout_height="wrap_content"
+                    android:text="0" />
+
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="79dp"
+
+                android:text="Materiales comprados durante los trabajos" />
+
+            <ListView
+                android:id="@+id/lista"
+                android:layout_width="match_parent"
+                android:layout_height="113dp"
+                android:cacheColorHint="#000000"
+                android:textFilterEnabled="false">
+
+            </ListView>
+
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=" " />
+
+            <TextView
+                android:id="@+id/textView21"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Materiales comprados antes de los trabajos" />
+
+            <ListView
+                android:id="@+id/lista2"
+                android:layout_width="match_parent"
+                android:layout_height="113dp"
+                android:cacheColorHint="#000000"
+                android:textFilterEnabled="false" />
+
+            <TextView
+                android:id="@+id/textView23"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text=" " />
+
+            <TextView
+                android:id="@+id/textView22"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="Maeriales de bodega" />
+
+            <ListView
+                android:id="@+id/lista3"
+                android:layout_width="match_parent"
+                android:layout_height="113dp"
+                android:cacheColorHint="#000000"
+                android:textFilterEnabled="false" />
+
+
+        </LinearLayout>
+
+    </ScrollView>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+
+        <Button
+            android:id="@+id/button7"
+            android:layout_width="208dp"
+            android:layout_height="wrap_content"
+            android:text="Anterior" />
+
+        <Button
+            android:id="@+id/button4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="Enviar" />
+    </LinearLayout>
+</LinearLayout>

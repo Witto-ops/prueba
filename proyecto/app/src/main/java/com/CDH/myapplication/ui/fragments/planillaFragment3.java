@@ -20,6 +20,7 @@ import android.widget.ListView;
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment3ViewModel;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -52,6 +53,25 @@ public class planillaFragment3 extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+
+        final EditText txtnombre = view.findViewById(R.id.txtnombre);
+        final EditText txtprecio = view.findViewById(R.id.txtprecio);
+        final Button btnagregar= view.findViewById(R.id.btnagregar);
+        lista = view.findViewById(R.id.lista);
+        items = new ArrayList<>();
+        ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+        lista.setAdapter(ADP);
+        btnagregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                items.add(txtnombre.getText().toString()+" "+txtprecio.getText().toString());
+              //  items.add(txtprecio.getText().toString());
+                ADP.notifyDataSetChanged();
+            }
+        });
+
+
         Button button6=view.findViewById(R.id.button6);
         button6.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -59,6 +79,7 @@ public class planillaFragment3 extends Fragment {
                 String codigo = getArguments().getString("codigo");
                 Bundle bundle = new Bundle();
                 bundle.putString("codigo", codigo);
+                bundle.putSerializable("objetos", (Serializable) items);
                 Navigation.findNavController(v).navigate(R.id.planillaFragment4,bundle);
             }
         });
@@ -71,23 +92,6 @@ public class planillaFragment3 extends Fragment {
                 Bundle bundle = new Bundle();
                 bundle.putString("codigo", codigo);
                 Navigation.findNavController(v).navigate(R.id.planillaFragment2,bundle);
-            }
-        });
-
-        final EditText txtnombre = view.findViewById(R.id.txtnombre);
-        final EditText txtprecio = view.findViewById(R.id.txtprecio);
-        final Button btnagregar= view.findViewById(R.id.btnagregar);
-        lista = view.findViewById(R.id.lista);
-        items = new ArrayList<>();
-        ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
-        lista.setAdapter(ADP);
-
-        btnagregar.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                items.add(txtnombre.getText().toString());
-                items.add(txtprecio.getText().toString());
-                ADP.notifyDataSetChanged();
             }
         });
     }

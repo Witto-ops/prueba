@@ -88,6 +88,9 @@
         <argument
             android:name="codigo"
             app:argType="string" />
+        <action
+            android:id="@+id/action_planillaFragment5_to_resumenFragment"
+            app:destination="@id/resumenFragment" />
     </fragment>
     <fragment
         android:id="@+id/planillaFragment7"
@@ -121,5 +124,17 @@
         <action
             android:id="@+id/action_personalFragment_to_planillaFragment7"
             app:destination="@id/planillaFragment7" />
+    </fragment>
+    <fragment
+        android:id="@+id/resumenFragment"
+        android:name="com.CDH.myapplication.ui.fragments.ResumenFragment"
+        android:label="fragment_resumen"
+        tools:layout="@layout/fragment_resumen" >
+        <action
+            android:id="@+id/action_resumenFragment_to_planillaFragment5"
+            app:destination="@id/planillaFragment5" />
+        <action
+            android:id="@+id/action_resumenFragment_to_nav_home"
+            app:destination="@id/nav_home" />
     </fragment>
 </navigation>
