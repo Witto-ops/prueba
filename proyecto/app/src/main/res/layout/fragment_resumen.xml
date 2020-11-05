@@ -238,13 +238,13 @@
 
                 <TextView
                     android:id="@+id/textTotal"
-                    android:layout_width="135dp"
+                    android:layout_width="192dp"
                     android:layout_height="wrap_content"
                     android:text="Total de Viaticos" />
 
                 <TextView
                     android:id="@+id/textNumero"
-                    android:layout_width="135dp"
+                    android:layout_width="219dp"
                     android:layout_height="wrap_content"
                     android:text="0" />
 
@@ -320,13 +320,13 @@
 
                 <TextView
                     android:id="@+id/textTotal2"
-                    android:layout_width="135dp"
+                    android:layout_width="192dp"
                     android:layout_height="wrap_content"
                     android:text="Total de Varios" />
 
                 <TextView
                     android:id="@+id/textNumero2"
-                    android:layout_width="135dp"
+                    android:layout_width="219dp"
                     android:layout_height="wrap_content"
                     android:text="0" />
 

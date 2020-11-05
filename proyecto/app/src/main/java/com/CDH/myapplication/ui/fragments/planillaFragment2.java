@@ -23,6 +23,8 @@ import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.Datos.DbHelper;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment2ViewModel;
 
+import java.io.Serializable;
+
 public class planillaFragment2 extends Fragment {
 
     private PlanillaFragment2ViewModel mViewModel;
@@ -190,7 +192,7 @@ public class planillaFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
+                Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 agregabdd(codigo);
 
@@ -203,7 +205,7 @@ public class planillaFragment2 extends Fragment {
             @Override
             public void onClick(View v) {
                 String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
+                Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 agregabdd(codigo);
 

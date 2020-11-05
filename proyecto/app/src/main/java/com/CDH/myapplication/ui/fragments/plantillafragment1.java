@@ -101,6 +101,8 @@ public class plantillafragment1 extends Fragment {
 
 
                 String codigo = codigoTXT.getText().toString();
+
+
                 Bundle bundle = new Bundle();
               //  Toast.makeText(getActivity(), codigoTXT.getText().toString() , Toast.LENGTH_SHORT).show();
                 bundle.putString("codigo", codigo); bundle.putString("numero", "1");

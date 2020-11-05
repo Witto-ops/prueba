@@ -35,7 +35,18 @@ public class planillaFragment5 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.planilla_fragment5_fragment, container, false);
+        View vista= inflater.inflate(R.layout.planilla_fragment5_fragment, container, false);
+        Bundle bundle = getArguments();
+        if(bundle!=null ) {
+            if(getArguments().getSerializable("objetos3")!=null){
+                lista = vista.findViewById(R.id.lista);
+                items = new ArrayList<>();
+                ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,(ArrayList)getArguments().getSerializable("objetos3"));
+                lista.setAdapter(ADP);
+                ADP.notifyDataSetChanged();
+            }
+        }
+        return vista;
     }
 
     @Override
@@ -60,16 +71,36 @@ public class planillaFragment5 extends Fragment {
             @Override
             public void onClick(View v) {
                 String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
+                Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
+                bundle.putSerializable("objetos3", (Serializable) items);
+
                 Navigation.findNavController(v).navigate(R.id.planillaFragment4,bundle);
             }
         });
 
-        lista = view.findViewById(R.id.lista);
-        items = new ArrayList<>();
-        ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
-        lista.setAdapter(ADP);
+        Bundle bundle = getArguments();
+        if(bundle!=null ) {
+
+            if(getArguments().getSerializable("objetos3")!=null){
+                items=(ArrayList) getArguments().getSerializable("objetos3");
+                lista = view.findViewById(R.id.lista);
+                ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+                lista.setAdapter(ADP);
+                ADP.notifyDataSetChanged();
+
+            }else{
+                lista = view.findViewById(R.id.lista);
+                items = new ArrayList<>();
+                ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+                lista.setAdapter(ADP);
+            }
+        }else{
+            lista = view.findViewById(R.id.lista);
+            items = new ArrayList<>();
+            ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+            lista.setAdapter(ADP);
+        }
 
         btnagregar.setOnClickListener(new View.OnClickListener() {
             @Override

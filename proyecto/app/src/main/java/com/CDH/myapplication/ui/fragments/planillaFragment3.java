@@ -36,7 +36,9 @@ public class planillaFragment3 extends Fragment {
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container,
                              @Nullable Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.planilla_fragment3_fragment, container, false);
+        View vista = inflater.inflate(R.layout.planilla_fragment3_fragment, container, false);
+
+        return vista;
     }
 
     @Override
@@ -58,10 +60,30 @@ public class planillaFragment3 extends Fragment {
         final EditText txtnombre = view.findViewById(R.id.txtnombre);
         final EditText txtprecio = view.findViewById(R.id.txtprecio);
         final Button btnagregar= view.findViewById(R.id.btnagregar);
-        lista = view.findViewById(R.id.lista);
-        items = new ArrayList<>();
-        ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
-        lista.setAdapter(ADP);
+
+        Bundle bundle = getArguments();
+        if(bundle!=null ) {
+
+            if(getArguments().getSerializable("objetos")!=null){
+                items=(ArrayList) getArguments().getSerializable("objetos");
+                lista = view.findViewById(R.id.lista);
+                ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+                lista.setAdapter(ADP);
+                ADP.notifyDataSetChanged();
+
+            }else{
+                lista = view.findViewById(R.id.lista);
+                items = new ArrayList<>();
+                ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+                lista.setAdapter(ADP);
+            }
+        }else{
+            lista = view.findViewById(R.id.lista);
+            items = new ArrayList<>();
+            ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
+            lista.setAdapter(ADP);
+        }
+
         btnagregar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -77,7 +99,7 @@ public class planillaFragment3 extends Fragment {
             @Override
             public void onClick(View v) {
                 String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
+                Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 bundle.putSerializable("objetos", (Serializable) items);
                 Navigation.findNavController(v).navigate(R.id.planillaFragment4,bundle);
@@ -89,8 +111,9 @@ public class planillaFragment3 extends Fragment {
             @Override
             public void onClick(View v) {
                 String codigo = getArguments().getString("codigo");
-                Bundle bundle = new Bundle();
+                Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
+                bundle.putSerializable("objetos", (Serializable) items);
                 Navigation.findNavController(v).navigate(R.id.planillaFragment2,bundle);
             }
         });
