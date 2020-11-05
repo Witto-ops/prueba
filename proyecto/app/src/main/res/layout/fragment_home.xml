@@ -31,4 +31,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/text_home" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="141dp"
+        android:layout_marginTop="37dp"
+        android:layout_marginEnd="142dp"
+        android:text="NUESTRA EMPRESA"
+        android:textColor="#009EE1"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/textView6"
+        android:layout_width="298dp"
+        android:layout_height="117dp"
+        android:layout_marginStart="57dp"
+        android:layout_marginTop="29dp"
+        android:layout_marginEnd="58dp"
+        android:text="Entregamos soluciones efectivas y duraderas, adaptadas según las demandas de cada uno de nuestros clientes, mejorando su entorno y calidad de vida"
+        android:textAlignment="center"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 </androidx.constraintlayout.widget.ConstraintLayout>

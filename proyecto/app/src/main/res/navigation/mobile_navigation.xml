@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.CDH.myapplication.ui.home.HomeFragment"
-        android:label="CDH"
+        android:label="CDH INGENIERIA"
         tools:layout="@layout/fragment_home" />
 
     <fragment
@@ -137,4 +137,14 @@
             android:id="@+id/action_resumenFragment_to_nav_home"
             app:destination="@id/nav_home" />
     </fragment>
+    <fragment
+        android:id="@+id/quienessomosFragment"
+        android:name="com.CDH.myapplication.quienessomosFragment"
+        android:label="CDH"
+        tools:layout="@layout/fragment_quienessomos" />
+    <fragment
+        android:id="@+id/contactoFragment"
+        android:name="com.CDH.myapplication.contactoFragment"
+        android:label="Contacto"
+        tools:layout="@layout/fragment_contacto" />
 </navigation>

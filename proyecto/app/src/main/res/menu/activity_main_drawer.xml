@@ -29,12 +29,12 @@
     <item android:title="Acerca de">
         <menu>
             <item
-                android:id="@+id/facebook"
+                android:id="@+id/quienessomosFragment"
                 android:icon="@drawable/user"
                 android:title="¿Quienes Somos?" />
 
             <item
-                android:id="@+id/Instagram"
+                android:id="@+id/contactoFragment"
                 android:icon="@drawable/contacto"
                 android:title="Contacto" />
         </menu>
