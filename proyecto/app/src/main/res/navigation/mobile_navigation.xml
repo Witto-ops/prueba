@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/nav_home"
         android:name="com.CDH.myapplication.ui.home.HomeFragment"
-        android:label="@string/menu_home"
+        android:label="CDH"
         tools:layout="@layout/fragment_home" />
 
     <fragment
@@ -20,12 +20,12 @@
     <fragment
         android:id="@+id/nav_slideshow"
         android:name="com.CDH.myapplication.ui.slideshow.SlideshowFragment"
-        android:label="@string/menu_slideshow"
+        android:label="Modificar Planilla"
         tools:layout="@layout/fragment_slideshow" />
     <fragment
         android:id="@+id/registrofotoFragment"
         android:name="com.CDH.myapplication.ui.fragments.registrofotoFragment"
-        android:label="registrofoto_fragment"
+        android:label="Registros Fotograficos"
         tools:layout="@layout/registrofoto_fragment" />
     <fragment
         android:id="@+id/acercadefragment"
@@ -35,8 +35,8 @@
     <fragment
         android:id="@+id/planillaFragment2"
         android:name="com.CDH.myapplication.ui.fragments.planillaFragment2"
-        android:label="planilla_fragment2_fragment"
-        tools:layout="@layout/planilla_fragment2_fragment" >
+        android:label="Gastos Viaticos"
+        tools:layout="@layout/planilla_fragment2_fragment">
         <action
             android:id="@+id/action_planillaFragment2_to_planillaFragment3"
             app:destination="@id/planillaFragment3" />
@@ -50,8 +50,8 @@
     <fragment
         android:id="@+id/planillaFragment3"
         android:name="com.CDH.myapplication.ui.fragments.planillaFragment3"
-        android:label="planilla_fragment3_fragment"
-        tools:layout="@layout/planilla_fragment3_fragment" >
+        android:label="Materiales Comprados"
+        tools:layout="@layout/planilla_fragment3_fragment">
         <action
             android:id="@+id/action_planillaFragment3_to_planillaFragment4"
             app:destination="@id/planillaFragment4" />
@@ -65,8 +65,8 @@
     <fragment
         android:id="@+id/planillaFragment4"
         android:name="com.CDH.myapplication.ui.fragments.planillaFragment4"
-        android:label="planilla_fragment4_fragment"
-        tools:layout="@layout/planilla_fragment4_fragment" >
+        android:label="Materiales Comprados"
+        tools:layout="@layout/planilla_fragment4_fragment">
         <action
             android:id="@+id/action_planillaFragment4_to_planillaFragment5"
             app:destination="@id/planillaFragment5" />
@@ -80,8 +80,8 @@
     <fragment
         android:id="@+id/planillaFragment5"
         android:name="com.CDH.myapplication.ui.fragments.planillaFragment5"
-        android:label="planilla_fragment5_fragment"
-        tools:layout="@layout/planilla_fragment5_fragment" >
+        android:label="Materiales Bodega"
+        tools:layout="@layout/planilla_fragment5_fragment">
         <action
             android:id="@+id/action_planillaFragment5_to_planillaFragment4"
             app:destination="@id/planillaFragment4" />
@@ -107,8 +107,8 @@
     <fragment
         android:id="@+id/plantillafragment1"
         android:name="com.CDH.myapplication.ui.fragments.plantillafragment1"
-        android:label="plantillafragment1_fragment"
-        tools:layout="@layout/plantillafragment1_fragment" >
+        android:label="Ingreso Datos"
+        tools:layout="@layout/plantillafragment1_fragment">
         <action
             android:id="@+id/action_plantillafragment1_to_planillaFragment2"
             app:destination="@id/planillaFragment2" />
@@ -119,8 +119,8 @@
     <fragment
         android:id="@+id/personalFragment"
         android:name="com.CDH.myapplication.ui.fragments.personalFragment"
-        android:label="fragment_personal"
-        tools:layout="@layout/fragment_personal" >
+        android:label="Ingreso Personal"
+        tools:layout="@layout/fragment_personal">
         <action
             android:id="@+id/action_personalFragment_to_planillaFragment7"
             app:destination="@id/planillaFragment7" />
@@ -128,8 +128,8 @@
     <fragment
         android:id="@+id/resumenFragment"
         android:name="com.CDH.myapplication.ui.fragments.ResumenFragment"
-        android:label="fragment_resumen"
-        tools:layout="@layout/fragment_resumen" >
+        android:label="Resumen"
+        tools:layout="@layout/fragment_resumen">
         <action
             android:id="@+id/action_resumenFragment_to_planillaFragment5"
             app:destination="@id/planillaFragment5" />
