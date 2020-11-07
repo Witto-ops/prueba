@@ -5,21 +5,33 @@ import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.Datos.DbHelper;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class ResumenFragment extends Fragment {
     private ListView lista,lista2,lista3;
@@ -28,6 +40,7 @@ public class ResumenFragment extends Fragment {
     TextView desayunotxt, almuerzotxt, cenatxt, aguatxt, alojamientotxt, combustibletxt,peajetxt, estacionamientotxt;
     TextView codigoTXT,fechaTXT,acargoTXT,asignadaTXT,detalleTXT,proyectoTXT;
     TextView total1, total2;
+
     DbHelper FavDB;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -85,11 +98,64 @@ public class ResumenFragment extends Fragment {
             }
 
         }
-        total1.setText(suma());
-        total2.setText(suma2());
+      //  total1.setText(suma());
+       // total2.setText(suma2());
+        Button btn1=vista.findViewById(R.id.btnEnviar);
+        btn1.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                
+                enviabodega();
+                enviaantes();
+                enviadurante();
+                ejecutarServicio("http://192.168.56.1/wappservice/insertar_ficha.php");
+                Navigation.findNavController(v).navigate(R.id.plantillafragment1);
+            }
+        });
         return vista;
     }
 
+
+    private void enviadurante(){
+        //durante==1
+        items=(ArrayList) getArguments().getSerializable("objetos");
+        for (int i=0;i<items.size();i++) {
+
+            String string = items.get(i);
+            String[] parts = string.split(" ");
+            String part1 = parts[0]; // 123
+            String part2 = parts[1]; // 654321
+            ejecutarServicioDurante("http://192.168.56.1/wappservice/insertar_ficha.php",part1,part2);
+            Toast.makeText(getActivity(), "PASO "+" "+part1+" "+part2, Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    private void  enviaantes(){
+        //antes==2
+        items2=(ArrayList) getArguments().getSerializable("objetos2");
+        for (int i=0;i<items2.size();i++) {
+            String string = items2.get(i);
+            String[] parts = string.split(" ");
+            String part1 = parts[0]; // 123
+            String part2 = parts[1]; // 654321
+            ejecutarServicioAntes("http://192.168.56.1/wappservice/insertar_ficha.php",part1,part2);
+            //Toast.makeText(getActivity(), "PASO "+" "+part1+" "+part2, Toast.LENGTH_SHORT).show();
+        }
+    }
+    private void enviabodega(){
+        //bodega==3
+        items3=(ArrayList) getArguments().getSerializable("objetos3");
+        for (int i=0;i<items3.size();i++) {
+            String string = items2.get(i);
+            String[] parts = string.split(" ");
+            String part1 = parts[0]; // 123
+            String part2 = parts[1]; // 654321
+
+            ejecutarServicioBodega("http://192.168.56.1/wappservice/insertar_ficha.php",part1,part2);
+
+            //Toast.makeText(getActivity(), "PASO "+" "+bnombre.getText()+" "+bprecio.getText(), Toast.LENGTH_SHORT).show();
+        }
+    }
     private void rellena(String codigo){
         if (FavDB.if_exist(codigo)) {
 
@@ -123,6 +189,9 @@ public class ResumenFragment extends Fragment {
             }
         }
     }
+
+
+
     private String suma(){
         int desayuno = Integer.parseInt(desayunotxt.getText().toString());
         int almuerzo = Integer.parseInt(almuerzotxt.getText().toString());
@@ -145,4 +214,118 @@ public class ResumenFragment extends Fragment {
         return String.valueOf(total);
     }
 
+    private void ejecutarServicio(String URL){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity(), "PASO ", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "No Paso", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("codigo",codigoTXT.getText().toString());
+                parametros.put("fecha",fechaTXT.getText().toString());
+                parametros.put("acargo",acargoTXT.getText().toString());
+                parametros.put("proyecto",proyectoTXT.getText().toString());
+                parametros.put("asignada",asignadaTXT.getText().toString());
+                parametros.put("detalle",detalleTXT.getText().toString());
+
+                parametros.put("desayuno",desayunotxt.getText().toString());
+                parametros.put("almuerzo",almuerzotxt.getText().toString());
+                parametros.put("cena",cenatxt.getText().toString());
+                parametros.put("agua",aguatxt.getText().toString());
+                parametros.put("alojamiento",alojamientotxt.getText().toString());
+                parametros.put("combustible",combustibletxt.getText().toString());
+                parametros.put("peaje",peajetxt.getText().toString());
+                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
+
+                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
+                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
+                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
+
+
+                return  parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(stringRequest);
+    }
+
+    private void ejecutarServicioBodega(String URL, final String nombre, final String precio){
+
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity(), "PASO ", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "No Paso", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("materialBodega",nombre);
+                parametros.put("costoBodega",precio);
+//                Toast.makeText(getActivity(), nombre, Toast.LENGTH_SHORT).show();
+  //              Toast.makeText(getActivity(), precio, Toast.LENGTH_SHORT).show();
+
+                return  parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(stringRequest);
+    }
+    private void ejecutarServicioAntes(String URL, final String nombre, final String precio){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity(), "PASO ", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "No Paso", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("materialAntes",nombre);
+                parametros.put("costoAntes",precio);
+
+                return  parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(stringRequest);
+    }
+    private void ejecutarServicioDurante(String URL, final String nombre, final String precio){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity(), "PASO ", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "No Paso", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("MaterialDura",nombre);
+                parametros.put("costoDura",precio);
+
+                return  parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(stringRequest);
+    }
 }

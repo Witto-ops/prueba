@@ -99,9 +99,6 @@ public class personalFragment extends Fragment {
         adaptadorPersonal = new AdaptadorPersonal(getContext(), listaPersonal);
         recyclerViewPersonal.setAdapter(adaptadorPersonal);
 
-        /*Cuando se haga click en el recyclerView , se encarga de mostrar un Toast con el nombre del local
-            Envia el objeto seleccionado por medio de un bundle al activity DetalleLocal
-         */
         adaptadorPersonal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

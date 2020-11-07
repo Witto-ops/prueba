@@ -20,6 +20,16 @@ import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.Datos.DbHelper;
 import com.CDH.myapplication.ui.Datos.DbHelperPersonal;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment7ViewModel;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import java.util.HashMap;
+import java.util.Map;
 
 public class planillaFragment7 extends Fragment {
 
@@ -106,6 +116,7 @@ public class planillaFragment7 extends Fragment {
             String epm = epmtxt.getText().toString();
             if (!FavDB.is_exist(rut)) {
                 FavDB.insertIntoTheDatabase(nombre, rut, sam, spm, eam, epm, "true");
+                agregabdd("http://192.168.56.1/wappservice/insertar_ficha.php");
                 limpia();
             }else{
                 FavDB.cambio(rut);
@@ -162,5 +173,35 @@ public class planillaFragment7 extends Fragment {
         epmtxt.setText(epm);
         btn.setText("Modificar");
         btn2.setVisibility(View.VISIBLE);
+    }
+
+
+    private void agregabdd(String URL){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity(), "PASO ", Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "No Paso", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("nombre",nombretxt.getText().toString());
+                parametros.put("rut",ruttxt.getText().toString());
+                parametros.put("sam",samtxt.getText().toString());
+                parametros.put("spm",spmtxt.getText().toString());
+                parametros.put("eam",eamtxt.getText().toString());
+                parametros.put("epm",epmtxt.getText().toString());
+
+
+                return  parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(stringRequest);
     }
 }

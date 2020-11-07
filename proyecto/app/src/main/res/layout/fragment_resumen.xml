@@ -406,7 +406,7 @@
             android:text="Anterior" />
 
         <Button
-            android:id="@+id/button4"
+            android:id="@+id/btnEnviar"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_weight="1"
