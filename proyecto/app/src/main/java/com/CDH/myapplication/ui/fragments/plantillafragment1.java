@@ -28,8 +28,13 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -175,6 +180,39 @@ public class plantillafragment1 extends Fragment {
         };
         RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
         requestQueue.add(stringRequest);
+    }
+
+
+    private void buscaFactura(String URL){
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        //codigoTXT.setText(jsonObject.getString(""));
+                        fechaTXT.setText(jsonObject.getString(""));
+                        acargoTXT.setText(jsonObject.getString(""));
+                        proyectoTXT.setText(jsonObject.getString(""));
+                        asignadaTXT.setText(jsonObject.getString(""));
+                        detalleTXT.setText(jsonObject.getString(""));
+                    } catch (JSONException e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "Error de conexion ", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+        );
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(jsonArrayRequest);
     }
 
 }
