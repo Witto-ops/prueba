@@ -13,7 +13,7 @@
             android:icon="@drawable/ic_description_24"
             android:title="Ingreso Planilla" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/plantillafragment1_buscar"
             android:icon="@drawable/ic_edit_24"
             android:title="Modificar Planilla" />
         <item

@@ -147,4 +147,9 @@
         android:name="com.CDH.myapplication.contactoFragment"
         android:label="Contacto"
         tools:layout="@layout/fragment_contacto" />
+    <fragment
+        android:id="@+id/plantillafragment1_buscar"
+        android:name="com.CDH.myapplication.ui.fragments.plantillafragment1_buscar"
+        android:label="Buscar Datos"
+        tools:layout="@layout/fragment_plantillafragment1_buscar" />
 </navigation>

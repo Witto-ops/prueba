@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".ui.fragments.plantillafragment1">
+    tools:context=".ui.fragments.plantillafragment1_buscar">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -27,11 +27,18 @@
 
                 <EditText
                     android:id="@+id/editTextCodigo"
-                    android:layout_width="272dp"
+                    android:layout_width="119dp"
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:inputType="textPersonName"
                     android:text="" />
+
+                <Button
+                    android:id="@+id/button4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Buscar" />
             </LinearLayout>
 
             <LinearLayout
@@ -136,13 +143,5 @@
         </LinearLayout>
     </ScrollView>
 
-    <Button
-        android:id="@+id/btn1"
-        android:layout_width="157dp"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="151dp"
-        android:layout_marginStart="120dp"
-        android:layout_marginBottom="-418dp"
-        android:text="siguiente" />
 
 </LinearLayout>
