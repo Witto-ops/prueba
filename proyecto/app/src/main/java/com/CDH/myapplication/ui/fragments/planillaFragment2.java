@@ -22,8 +22,22 @@ import android.widget.Toast;
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.Datos.DbHelper;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment2ViewModel;
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.HashMap;
+import java.util.Map;
 
 public class planillaFragment2 extends Fragment {
 
@@ -69,7 +83,13 @@ public class planillaFragment2 extends Fragment {
 
         Bundle bundle = getArguments();
         if(bundle!=null ){
-            rellena(getArguments().getString("codigo"));
+            if(bundle.getString("mod").equals("1")){
+                String codigo = getArguments().getString("codigo");
+                buscaFactura("http://192.168.56.1/wappservice/buscar_ficha.php?cod="+codigo+"");
+
+            }else{
+                rellena(getArguments().getString("codigo"));
+            }
         }
 
         desayunotxt.setOnFocusChangeListener(new View.OnFocusChangeListener() {
@@ -195,8 +215,13 @@ public class planillaFragment2 extends Fragment {
                 Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 agregabdd(codigo);
+                if(bundle.getString("mod").equals("1")){
+                    ejecutarServicio("http://192.168.56.1/wappservice/modifica2.php",codigo);
+                    Navigation.findNavController(v).navigate(R.id.plantillafragment1_buscar,bundle);
+                }else{
+                    Navigation.findNavController(v).navigate(R.id.plantillafragment1,bundle);
+                }
 
-                Navigation.findNavController(v).navigate(R.id.plantillafragment1,bundle);
             }
         });
 
@@ -208,8 +233,12 @@ public class planillaFragment2 extends Fragment {
                 Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 agregabdd(codigo);
-
-                Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+                if(bundle.getString("mod").equals("1")){
+                    ejecutarServicio("http://192.168.56.1/wappservice/modifica2.php",codigo);
+                    Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+                }else{
+                    Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+                }
             }
         });
 
@@ -282,6 +311,42 @@ public class planillaFragment2 extends Fragment {
         }
     }
 
+    private void buscaFactura(String URL){
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        //codigoTXT.setText(jsonObject.getString(""));
+                        desayunotxt.setText(jsonObject.getString("Desayuno"));
+                        almuerzotxt.setText(jsonObject.getString("Almuerzo"));
+                        cenatxt.setText(jsonObject.getString("Cena"));
+                        aguatxt.setText(jsonObject.getString("Agua"));
+                        alojamientotxt.setText(jsonObject.getString("Alojamiento"));
+                        combustibletxt.setText(jsonObject.getString("Combustible"));
+                        peajetxt.setText(jsonObject.getString("Peaje"));
+                        estacionamientotxt.setText(jsonObject.getString("Estacionamiento"));
+                    } catch (JSONException e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "Error de conexion ", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+        );
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(jsonArrayRequest);
+    }
+
+
     private void agregabdd(String codigo) {
         if (!desayunotxt.getText().toString().equals("")) {
             int desayuno = Integer.parseInt(desayunotxt.getText().toString());
@@ -298,6 +363,35 @@ public class planillaFragment2 extends Fragment {
 
         }
     }
+    private void ejecutarServicio(String URL,final String codigo){
+        StringRequest stringRequest=new StringRequest(Request.Method.POST, URL, new Response.Listener<String>() {
+            @Override
+            public void onResponse(String response) {
+                Toast.makeText(getActivity(), "PASO "+almuerzotxt.getText().toString(), Toast.LENGTH_SHORT).show();
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "No Paso", Toast.LENGTH_SHORT).show();
+            }
+        }){
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String,String> parametros=new HashMap<String, String>();
+                parametros.put("cod",codigo);
+                parametros.put("desayuno",desayunotxt.getText().toString());
+                parametros.put("almuerzo",almuerzotxt.getText().toString());
+                parametros.put("cena",cenatxt.getText().toString());
+                parametros.put("agua",aguatxt.getText().toString());
+                parametros.put("alojamiento",alojamientotxt.getText().toString());
+                parametros.put("combustible",combustibletxt.getText().toString());
+                parametros.put("peaje",peajetxt.getText().toString());
+                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
 
+                return  parametros;
+            }
+        };
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(stringRequest);
+    }
 
 }

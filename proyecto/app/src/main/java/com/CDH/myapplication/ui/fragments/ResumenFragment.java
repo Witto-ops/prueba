@@ -244,10 +244,6 @@ public class ResumenFragment extends Fragment {
                 parametros.put("peaje",peajetxt.getText().toString());
                 parametros.put("estacionamiento",estacionamientotxt.getText().toString());
 
-                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
-                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
-                parametros.put("estacionamiento",estacionamientotxt.getText().toString());
-
 
                 return  parametros;
             }

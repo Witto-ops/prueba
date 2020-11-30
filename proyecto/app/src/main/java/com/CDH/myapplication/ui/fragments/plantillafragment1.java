@@ -110,7 +110,7 @@ public class plantillafragment1 extends Fragment {
 
                 Bundle bundle = new Bundle();
               //  Toast.makeText(getActivity(), codigoTXT.getText().toString() , Toast.LENGTH_SHORT).show();
-                bundle.putString("codigo", codigo); bundle.putString("numero", "1");
+                bundle.putString("codigo", codigo); bundle.putString("numero", "1");bundle.putString("mod", "2");
                 agregabdd(codigo);
                 //ejecutarServicio("http://192.168.56.1/wappservice/insertar_ficha.php");
 

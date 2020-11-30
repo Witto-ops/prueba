@@ -16,9 +16,19 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.CDH.myapplication.R;
 import com.CDH.myapplication.ui.vistas.PlanillaFragment4ViewModel;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonArrayRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -46,6 +56,12 @@ public class planillaFragment4 extends Fragment {
                 ADP.notifyDataSetChanged();
             }
         }
+        if(bundle!=null ){
+            if(bundle.getString("mod").equals("1")){
+                String codigo = getArguments().getString("codigo");
+                buscaFactura("http://192.168.56.1/wappservice/buscar_ficha.php?codig="+codigo+"");
+            }
+        }
         return vista;
     }
 
@@ -69,7 +85,7 @@ public class planillaFragment4 extends Fragment {
         Bundle bundle = getArguments();
         if(bundle!=null ) {
 
-            if(getArguments().getSerializable("objetos2")!=null){
+            if(getArguments().getSerializable("objetos2")!=null && bundle.getString("mod").equals("2")){
                 items=(ArrayList) getArguments().getSerializable("objetos2");
                 lista = view.findViewById(R.id.lista);
                 ADP = new ArrayAdapter(getContext(),android.R.layout.simple_list_item_1,items);
@@ -106,7 +122,12 @@ public class planillaFragment4 extends Fragment {
                 Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 bundle.putSerializable("objetos2", (Serializable) items);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment5,bundle);
+                if(bundle.getString("mod").equals("1")){
+                    // ejecutarServicio("http://192.168.56.1/wappservice/modifica2.php",codigo);
+                    Navigation.findNavController(v).navigate(R.id.planillaFragment5,bundle);
+                }else{
+                    Navigation.findNavController(v).navigate(R.id.planillaFragment5,bundle);
+                }
             }
         });
 
@@ -118,8 +139,43 @@ public class planillaFragment4 extends Fragment {
                 Bundle bundle = getArguments();
                 bundle.putString("codigo", codigo);
                 bundle.putSerializable("objetos2", (Serializable) items);
-                Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+                if(bundle.getString("mod").equals("1")){
+                    // ejecutarServicio("http://192.168.56.1/wappservice/modifica2.php",codigo);
+                    Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+                }else{
+                    Navigation.findNavController(v).navigate(R.id.planillaFragment3,bundle);
+                }
             }
         });
+    }
+
+    private void buscaFactura(String URL){
+        JsonArrayRequest jsonArrayRequest=new JsonArrayRequest(URL, new Response.Listener<JSONArray>() {
+            @Override
+            public void onResponse(JSONArray response) {
+                JSONObject jsonObject = null;
+                for (int i = 0; i < response.length(); i++) {
+                    try {
+                        jsonObject = response.getJSONObject(i);
+                        items.add(jsonObject.getString("nombre")+" "+jsonObject.getString("costo"));
+                        //  items.add(txtprecio.getText().toString());
+                        ADP.notifyDataSetChanged();
+
+                    } catch (JSONException e) {
+                        Toast.makeText(getActivity(), e.getMessage(), Toast.LENGTH_SHORT).show();
+
+                    }
+                }
+            }
+        }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                Toast.makeText(getActivity(), "Error de conexion ", Toast.LENGTH_SHORT).show();
+
+            }
+        }
+        );
+        RequestQueue requestQueue= Volley.newRequestQueue(this.getContext());
+        requestQueue.add(jsonArrayRequest);
     }
 }

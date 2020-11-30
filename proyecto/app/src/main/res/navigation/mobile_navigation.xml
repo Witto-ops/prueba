@@ -46,6 +46,9 @@
         <argument
             android:name="codigo"
             app:argType="string" />
+        <action
+            android:id="@+id/action_planillaFragment2_to_plantillafragment1_buscar"
+            app:destination="@id/plantillafragment1_buscar" />
     </fragment>
     <fragment
         android:id="@+id/planillaFragment3"
@@ -151,5 +154,9 @@
         android:id="@+id/plantillafragment1_buscar"
         android:name="com.CDH.myapplication.ui.fragments.plantillafragment1_buscar"
         android:label="Buscar Datos"
-        tools:layout="@layout/fragment_plantillafragment1_buscar" />
+        tools:layout="@layout/fragment_plantillafragment1_buscar" >
+        <action
+            android:id="@+id/action_plantillafragment1_buscar_to_planillaFragment2"
+            app:destination="@id/planillaFragment2" />
+    </fragment>
 </navigation>
