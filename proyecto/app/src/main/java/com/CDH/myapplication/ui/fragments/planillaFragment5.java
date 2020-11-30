@@ -64,6 +64,7 @@ public class planillaFragment5 extends Fragment {
         final EditText txtnombre = view.findViewById(R.id.txtnombre);
         final EditText txtprecio = view.findViewById(R.id.txtprecio);
         final Button btnagregar= view.findViewById(R.id.btnagregar);
+        final Button btneliminar= view.findViewById(R.id.btneliminar);
 
 
         Button button5=view.findViewById(R.id.btnA2);
@@ -107,6 +108,15 @@ public class planillaFragment5 extends Fragment {
             public void onClick(View v) {
                 items.add(txtnombre.getText().toString()+" "+txtprecio.getText().toString());
                 //items.add(txtprecio.getText().toString());
+                ADP.notifyDataSetChanged();
+            }
+        });
+
+        btneliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                items.remove(txtnombre.getText().toString()+" "+txtprecio.getText().toString());
+                //  items.add(txtprecio.getText().toString());
                 ADP.notifyDataSetChanged();
             }
         });

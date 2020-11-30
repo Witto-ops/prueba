@@ -76,6 +76,7 @@ public class planillaFragment3 extends Fragment {
         final EditText txtnombre = view.findViewById(R.id.txtnombre);
         final EditText txtprecio = view.findViewById(R.id.txtprecio);
         final Button btnagregar= view.findViewById(R.id.btnagregar);
+        final Button btneliminar= view.findViewById(R.id.btneliminar);
 
         Bundle bundle = getArguments();
         if(bundle!=null ) {
@@ -105,6 +106,15 @@ public class planillaFragment3 extends Fragment {
             public void onClick(View v) {
                 items.add(txtnombre.getText().toString()+" "+txtprecio.getText().toString());
               //  items.add(txtprecio.getText().toString());
+                ADP.notifyDataSetChanged();
+
+            }
+        });
+        btneliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                items.remove(txtnombre.getText().toString()+" "+txtprecio.getText().toString());
+                //  items.add(txtprecio.getText().toString());
                 ADP.notifyDataSetChanged();
             }
         });
